@@ -10,6 +10,7 @@
   "dependencies": {
     "bootstrap-vue": "^2.0.4",
     "core-js": "^3.3.2",
+    "lodash": "^4.17.15",
     "vue": "^2.6.10"
   },
   "devDependencies": {
@@ -30,7 +31,9 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "rules": {},
+    "rules": {
+      "console.log": "off"
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }
