@@ -17,14 +17,21 @@
         
       </b-list-group>
 
-      <b-button variant="primary" href="#">Submit</b-button>
-      <b-button 
+      <b-button
+        class="btn" 
+        variant="primary" 
+        href="#"
+        >
+          Submit
+      </b-button>
+      <b-button
+        class="btn" 
         variant="success"
         @click="next" 
         href="#"
         >
           Next
-        </b-button>
+      </b-button>
   </b-jumbotron>
   </div>
 </template>
@@ -43,8 +50,15 @@ export default {
       
     }
   },
-  mounted() {
-    console.log(this.currentQuestion)
-  }
+  
 }
 </script>
+
+<style scoped>
+.list-group {
+  margin-bottom: 15px;
+}
+.btn {
+  margin: 0 5px;
+}
+</style>
