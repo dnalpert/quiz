@@ -31,7 +31,7 @@
       "eslint:recommended"
     ],
     "rules": {
-      "console.log": 0
+      "console.log": "off"
     },
     "parserOptions": {
       "parser": "babel-eslint"
