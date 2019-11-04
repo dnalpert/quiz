@@ -3,7 +3,7 @@
     <b-jumbotron>
 
       <template v-slot:lead>
-        Place for question
+        {{ currentQuestion.question }}
       </template>
 
       <hr class="my-4">
@@ -21,3 +21,11 @@
   </b-jumbotron>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    currentQuestion: Object
+  }
+}
+</script>
