@@ -13,6 +13,7 @@
           v-for="(answer, index) in answers" 
           :key="index"
           @click="selectAnswer(index)"
+          :class="[selectedIndex === index ? 'selected' : '']"
           >
             {{ answer }}
         </b-list-group-item>
@@ -70,7 +71,21 @@ export default {
 .list-group {
   margin-bottom: 15px;
 }
+.list-group-item:hover {
+  background-color: #EEE;
+  cursor: pointer;
+}
 .btn {
   margin: 0 5px;
 }
+.selected {
+  background-color: skyblue;
+}
+.correct {
+  background-color: lightgreen;
+}
+.incorrect {
+  background-color: red;
+}
+
 </style>
