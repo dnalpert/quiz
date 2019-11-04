@@ -22,8 +22,9 @@
 
       <b-button
         class="btn" 
-        variant="primary" 
-        href="#"
+        variant="primary"
+        @click="submitAnswer"
+        :disabled="selectedIndex === null || isAnswered"
         >
           Submit
       </b-button>
@@ -31,7 +32,6 @@
         class="btn" 
         variant="success"
         @click="next" 
-        href="#"
         >
           Next
       </b-button>
@@ -44,12 +44,14 @@ import _ from 'lodash'
 export default {
   props: {
     currentQuestion: Object,
-    next: Function
+    next: Function,
+    increment: Function
   },
   data() {
     return {
       selectedIndex: null,
-      shuffledAnswers: []
+      shuffledAnswers: [],
+      isAnswered: false
     }
   },
   computed: {
@@ -65,7 +67,8 @@ export default {
       immediate: true,
       handler() {
         this.selectedIndex = null
-        this.shuffleAnswers()
+        this.shuffleAnswers(),
+        this.isAnswered = false
       }
     }
     
@@ -82,6 +85,15 @@ export default {
     shuffleAnswers() {
       let answers = [...this.currentQuestion.incorrect_answers, this.currentQuestion.correct_answer]
       this.shuffledAnswers = _.shuffle(answers)
+    },
+    submitAnswer() {
+      let isCorrect = false
+
+      if (this.selectedIndex === this.correctIndex) {
+        isCorrect = true
+      }
+      this.isAnswered = true
+      this.increment(isCorrect)
     }
   }
 }
