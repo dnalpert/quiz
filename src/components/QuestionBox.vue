@@ -50,6 +50,7 @@ export default {
   data() {
     return {
       selectedIndex: null,
+      correctIndex: null,
       shuffledAnswers: [],
       isAnswered: false
     }
@@ -72,19 +73,15 @@ export default {
       }
     }
     
-    // () {
-    //   this.selectedIndex = null
-    //   this.shuffleAnswers()
-    // }
   },
   methods: {
     selectAnswer(index) {
       this.selectedIndex = index
-      // console.log(index)
     },
     shuffleAnswers() {
       let answers = [...this.currentQuestion.incorrect_answers, this.currentQuestion.correct_answer]
       this.shuffledAnswers = _.shuffle(answers)
+      this.correctIndex = this.shuffledAnswers.indexOf(this.currentQuestion.correct_answer)
     },
     submitAnswer() {
       let isCorrect = false
