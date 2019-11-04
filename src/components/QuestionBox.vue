@@ -10,9 +10,11 @@
 
       <b-list-group>
         <b-list-group-item
-          v-for="(answer, index) in answers" :key="index"
+          v-for="(answer, index) in answers" 
+          :key="index"
+          @click="selectAnswer(index)"
           >
-          {{ answer }}
+            {{ answer }}
         </b-list-group-item>
         
       </b-list-group>
@@ -42,6 +44,11 @@ export default {
     currentQuestion: Object,
     next: Function
   },
+  data() {
+    return {
+      selectedIndex: null
+    }
+  },
   computed: {
     answers() {
       let answers = [...this.currentQuestion.incorrect_answers]
@@ -50,7 +57,12 @@ export default {
       
     }
   },
-  
+  methods: {
+    selectAnswer(index) {
+      this.selectedIndex = index
+      // console.log(index)
+    }
+  }
 }
 </script>
 
