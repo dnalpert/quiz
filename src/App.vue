@@ -18,9 +18,6 @@
       </b-row>
     </b-container>
    
-  
-
-
   </div>
 </template>
 
@@ -63,8 +60,6 @@ export default {
     .then((jsonData) => {
       this.questions = jsonData.results
       // TODO: data needs to be cleaned up
-      
-   
     })
   }
 }
