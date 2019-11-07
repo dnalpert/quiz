@@ -59,8 +59,7 @@ export default {
     answers() {
       let answers = [...this.currentQuestion.incorrect_answers]
       answers.push(this.currentQuestion.correct_answer)
-      return answers
-      
+      return answers    
     }
   },
   watch: {
@@ -72,7 +71,6 @@ export default {
         this.isAnswered = false
       }
     }
-    
   },
   methods: {
     selectAnswer(index) {
@@ -89,6 +87,7 @@ export default {
       if (this.selectedIndex === this.correctIndex) {
         isCorrect = true
       }
+      
       this.isAnswered = true
       this.increment(isCorrect)
     },
